@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "axios": "^1.13.2",
+    "date-fns": "^4.1.0",
+    "notistack": "^3.0.2",
+    "react-imask": "^7.6.1",
+    "react-input-mask": "^2.0.4",
+    "react-router-dom": "^6.30.2"
+  }
+}
