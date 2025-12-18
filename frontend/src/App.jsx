@@ -5,6 +5,7 @@ import Login from './pages/Login.jsx';
 import Profile from './pages/Profile.jsx';
 import NewsPage from './pages/NewsPage.jsx';
 import ArticleDetail from './pages/ArticleDetail.jsx';
+import About from './pages/About.jsx';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="*" element={<div style={{padding: '50px', textAlign: 'center'}}><h1>404</h1></div>} />
         <Route path="/news" element={<NewsPage />} />
         <Route path="/news/:slug" element={<ArticleDetail />} />
+        <Route path="/about-us" element={<About />} />
       </Routes>
     </Router>
   );
