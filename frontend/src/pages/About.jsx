@@ -179,13 +179,12 @@ const styles = {
     padding: "0 20px",
   },
 
-  // Баннер (герой)
+  // Баннер
   bannerSection: {
     position: "relative",
     height: "80vh",
     minHeight: "600px",
-    backgroundImage:
-      "ur[](https://images.unsplash.com/photo-1498837167922-47b4b2b5b8d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80)",
+    // backgroundImage: "url()",
     backgroundSize: "cover",
     backgroundPosition: "center",
     borderRadius: "0 0 30px 30px",
