@@ -4,7 +4,7 @@ import api from '../api';
 import { format } from 'date-fns';
 import { ru } from 'date-fns/locale';
 import Header from '../components/Header';
-import Footer from '../components/footer';
+import Footer from "../components/Footer";
 
 function ArticleDetail() {
   const { slug } = useParams();

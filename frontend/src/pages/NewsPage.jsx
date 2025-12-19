@@ -4,7 +4,7 @@ import api from '../api';
 import { format } from 'date-fns';
 import { ru } from 'date-fns/locale';
 import Header from '../components/Header';
-import Footer from '../components/footer';
+import Footer from "../components/Footer";
 
 function NewsPage() {
   
@@ -375,6 +375,7 @@ const styles = {
     background: 'white',
     boxShadow: '0 4px 15px rgba(0,0,0,0.05)',
     transition: 'transform 0.3s',
+    maxWidth: '465px',
   },
   articleImage: {
     width: '100%',
@@ -430,12 +431,14 @@ const styles = {
     borderRadius: '8px',
     border: '1px solid #ccc',
     background: 'white',
+    color:'#000',
   },
   paginationButtonDisabled: {
     padding: '10px 20px',
     borderRadius: '8px',
     border: '1px solid #ccc',
-    background: '#f0f0f0',
+    background: '#ffff',
+    color:'#000',
   },
   paginationPage: {
     padding: '10px 15px',
@@ -450,7 +453,6 @@ const styles = {
     borderRadius: '8px',
     border: 'none',
     background: '#2e7d32',
-    color: 'white',
     fontWeight: 'bold',
   },
 };
