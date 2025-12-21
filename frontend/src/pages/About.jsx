@@ -6,7 +6,8 @@ import styles from "./About.module.css";
 function About() {
   return (
     <>
-      <Header />
+        {/* шапка */}
+        <Header />
 
       <div className={styles.pageWrapper}>
         {/* Баннер */}

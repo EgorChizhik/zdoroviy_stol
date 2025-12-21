@@ -2,6 +2,7 @@ from rest_framework import viewsets, status
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, AllowAny
+from django.contrib.auth import authenticate
 
 from .models import User
 from .serializers import RegisterSerializer
@@ -27,7 +28,7 @@ class LoginView(APIView):
     permission_classes = [AllowAny]
 
     def post(self, request):
-        from django.contrib.auth import authenticate
+        
         username = request.data.get('username')
         password = request.data.get('password')
         user = authenticate(username=username, password=password)

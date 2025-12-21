@@ -3,8 +3,8 @@
   justify-content: space-between;
   align-items: center;
   padding: 20px 50px;
-  background-color: #f8f9fa;
-  border-bottom: 1px solid #ddd;
+  background-color: var(--light-bg);
+  border-bottom: 1px solid #e0e0e0;
   flex-wrap: wrap;
   gap: 20px;
   box-sizing: border-box;
@@ -17,7 +17,7 @@
 
 .logoLink {
   text-decoration: none;
-  color: #2e7d32;
+  color: var(--primary-green);
 }
 
 .nav {
@@ -27,9 +27,14 @@
 
 .navLink {
   text-decoration: none;
-  color: #333;
+  color: var(--text-dark);
   font-size: 16px;
   white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.navLink:hover {
+  color: var(--primary-green);
 }
 
 .authButtons {
@@ -43,34 +48,144 @@
 .profileButton,
 .logoutButton {
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 8px;
   text-decoration: none;
+  font-weight: 500;
   white-space: nowrap;
+  transition: all 0.2s ease;
 }
 
 .loginButton {
-  border: 1px solid #2e7d32;
-  color: #2e7d32;
+  border: 2px solid var(--primary-green);
+  background-color: transparent;
+  color: var(--primary-green);
+}
+
+.loginButton:hover {
+  background-color: var(--primary-green);
+  color: white;
 }
 
 .registerButton {
-  background-color: #2e7d32;
+  background-color: var(--primary-green);
   color: white;
+  border: none;
+}
+
+.registerButton:hover {
+  background-color: #43A047;
 }
 
 .profileButton {
-  background-color: #e8f5e9;
-  color: #2e7d32;
+  background-color: var(--card-bg);
+  color: var(--primary-green);
+  border: none;
   font-weight: bold;
 }
 
-.logoutButton {
-  background-color: #c62828;
-  color: white;
-  border: none;
-  cursor: pointer;
+.profileButton:hover {
+  background-color: #dcefdc;
 }
 
+.logoutButton {
+  background-color: #d32f2f;
+  color: white;
+  border: none;
+}
+
+.logoutButton:hover {
+  background-color: #c62828;
+}
+
+@media (min-width: 1200px) {
+  .header {
+    padding: 25px 80px;
+  }
+
+  .logo {
+    font-size: 28px;
+  }
+
+  .nav {
+    gap: 40px;
+  }
+
+  .navLink {
+    font-size: 18px;
+  }
+
+  .authButtons {
+    gap: 20px;
+  }
+
+  .loginButton,
+  .registerButton,
+  .profileButton,
+  .logoutButton {
+    padding: 12px 28px;
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .header {
+    padding: 30px 120px;
+  }
+
+  .logo {
+    font-size: 32px;
+  }
+
+  .nav {
+    gap: 50px;
+  }
+
+  .navLink {
+    font-size: 19px;
+  }
+
+  .authButtons {
+    gap: 25px;
+  }
+
+  .loginButton,
+  .registerButton,
+  .profileButton,
+  .logoutButton {
+    padding: 14px 32px;
+    font-size: 17px;
+  }
+}
+
+@media (min-width: 2560px) {
+  .header {
+    padding: 35px 160px;
+  }
+
+  .logo {
+    font-size: 36px;
+  }
+
+  .nav {
+    gap: 60px;
+  }
+
+  .navLink {
+    font-size: 20px;
+  }
+
+  .authButtons {
+    gap: 30px;
+  }
+
+  .loginButton,
+  .registerButton,
+  .profileButton,
+  .logoutButton {
+    padding: 16px 36px;
+    font-size: 18px;
+  }
+}
 
 @media (max-width: 1200px) {
   .header {
@@ -95,7 +210,6 @@
     font-size: 15px;
   }
 }
-
 
 @media (max-width: 768px) {
   .header {
@@ -131,7 +245,6 @@
     padding: 12px 20px;
   }
 }
-
 
 @media (max-width: 375px) {
   .logo {

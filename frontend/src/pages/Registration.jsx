@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { IMaskInput } from "react-imask";
 import { enqueueSnackbar } from "notistack";
 import api from "../api";
+import styles from './Registration.module.css';
 
 function Registration() {
   const navigate = useNavigate();
@@ -80,16 +81,16 @@ function Registration() {
       : null;
   };
 
-  const getInputStyle = (field) =>
+  const getInputClass = (field) =>
     touched[field] && getFieldError(field)
-      ? styles.errorInput
+      ? `${styles.baseInput} ${styles.errorInput}`
       : styles.baseInput;
 
   return (
-    <div style={styles.container}>
-      <h1 style={styles.title}>Регистрация</h1>
+    <div className={styles.container}>
+      <h1 className={styles.title}>Регистрация</h1>
 
-      <form onSubmit={handleSubmit} style={styles.form}>
+      <form onSubmit={handleSubmit} className={styles.form}>
         {/* Логин */}
         <div>
           <input
@@ -98,10 +99,10 @@ function Registration() {
             value={formData.username}
             onChange={handleChange}
             onBlur={handleBlur}
-            style={getInputStyle("username")}
+            className={getInputClass("username")}
           />
           {touched.username && getFieldError("username") && (
-            <p style={styles.errorText}>Ошибка: {getFieldError("username")}</p>
+            <p className={styles.errorText}>Ошибка: {getFieldError("username")}</p>
           )}
         </div>
 
@@ -113,15 +114,15 @@ function Registration() {
             value={formData.nickname}
             onChange={handleChange}
             onBlur={handleBlur}
-            style={getInputStyle("nickname")}
+            className={getInputClass("nickname")}
           />
           {touched.nickname && getFieldError("nickname") && (
-            <p style={styles.errorText}>Ошибка: {getFieldError("nickname")}</p>
+            <p className={styles.errorText}>Ошибка: {getFieldError("nickname")}</p>
           )}
         </div>
 
         {/* ФИО */}
-        <div style={styles.nameGrid}>
+        <div className={styles.nameGrid}>
           <div>
             <input
               name="last_name"
@@ -129,7 +130,7 @@ function Registration() {
               value={formData.last_name}
               onChange={handleChange}
               onBlur={handleBlur}
-              style={getInputStyle("last_name")}
+              className={getInputClass("last_name")}
             />
           </div>
           <div>
@@ -139,7 +140,7 @@ function Registration() {
               value={formData.first_name}
               onChange={handleChange}
               onBlur={handleBlur}
-              style={getInputStyle("first_name")}
+              className={getInputClass("first_name")}
             />
           </div>
           <div>
@@ -149,7 +150,7 @@ function Registration() {
               value={formData.patronymic}
               onChange={handleChange}
               onBlur={handleBlur}
-              style={getInputStyle("patronymic")}
+              className={getInputClass("patronymic")}
             />
           </div>
         </div>
@@ -159,7 +160,7 @@ function Registration() {
           name="gender"
           value={formData.gender}
           onChange={handleChange}
-          style={styles.select}
+          className={styles.select}
         >
           <option value="N">Пол не указан</option>
           <option value="M">Мужской</option>
@@ -175,10 +176,10 @@ function Registration() {
             value={formData.email}
             onChange={handleChange}
             onBlur={handleBlur}
-            style={getInputStyle("email")}
+            className={getInputClass("email")}
           />
           {touched.email && getFieldError("email") && (
-            <p style={styles.errorText}>Ошибка: {getFieldError("email")}</p>
+            <p className={styles.errorText}>Ошибка: {getFieldError("email")}</p>
           )}
         </div>
 
@@ -194,10 +195,10 @@ function Registration() {
               setTouched((prev) => ({ ...prev, phone: true }));
             }}
             onBlur={() => setTouched((prev) => ({ ...prev, phone: true }))}
-            style={getInputStyle("phone")}
+            className={getInputClass("phone")}
           />
           {touched.phone && getFieldError("phone") && (
-            <p style={styles.errorText}>Ошибка: {getFieldError("phone")}</p>
+            <p className={styles.errorText}>Ошибка: {getFieldError("phone")}</p>
           )}
         </div>
 
@@ -210,49 +211,51 @@ function Registration() {
             value={formData.password}
             onChange={handleChange}
             onBlur={handleBlur}
-            style={getInputStyle("password")}
+            className={getInputClass("password")}
           />
           {touched.password && getFieldError("password") && (
-            <p style={styles.errorText}>Ошибка: {getFieldError("password")}</p>
+            <p className={styles.errorText}>Ошибка: {getFieldError("password")}</p>
           )}
         </div>
 
         {/* Чекбоксы */}
-        <div style={styles.agreements}>
-          <label style={styles.checkboxLabel}>
+        <div className={styles.agreements}>
+          <label className={styles.checkboxLabel}>
             <input
               type="checkbox"
               name="agreePrivacy"
               checked={formData.agreePrivacy}
               onChange={handleChange}
             />
-            <span style={styles.checkboxText}>
+            <span className={styles.checkboxText}>
               Я принимаю{" "}
               <span
-                onClick={() =>
-                  openDocModal("Политика конфиденциальности", "Текст...")
-                }
-                style={styles.link}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  openDocModal("Политика конфиденциальности", "Текст политики конфиденциальности...");
+                }}
+                className={styles.link}
               >
                 Политику конфиденциальности
               </span>
             </span>
           </label>
 
-          <label style={styles.checkboxLabel}>
+          <label className={styles.checkboxLabel}>
             <input
               type="checkbox"
               name="agreeProcessing"
               checked={formData.agreeProcessing}
               onChange={handleChange}
             />
-            <span style={styles.checkboxText}>
+            <span className={styles.checkboxText}>
               Я даю{" "}
               <span
-                onClick={() =>
-                  openDocModal("Согласие на обработку ПД", "Текст...")
-                }
-                style={styles.link}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  openDocModal("Согласие на обработку ПД", "Текст согласия на обработку персональных данных...");
+                }}
+                className={styles.link}
               >
                 согласие на обработку персональных данных
               </span>
@@ -260,38 +263,29 @@ function Registration() {
           </label>
         </div>
 
-        <button type="submit" style={styles.submitButton}>
+        <button type="submit" className={styles.submitButton}>
           Зарегистрироваться
         </button>
       </form>
 
-      <p style={styles.loginLink}>
+      <p className={styles.loginLink}>
         Уже есть аккаунт?{" "}
-        <Link to="/login" style={styles.linkBold}>
+        <Link to="/login" className={styles.linkBold}>
           Войти
         </Link>
       </p>
 
       {/* Модалка */}
       {docModal.open && (
-        <div
-          style={styles.modalOverlay}
-          onClick={() => setDocModal({ open: false })}
-        >
-          <div style={styles.modalContent} onClick={(e) => e.stopPropagation()}>
-            <h2 style={styles.modalTitle}>{docModal.title}</h2>
-            <div
-              style={{
-                color: "#333",
-                lineHeight: "1.7",
-                whiteSpace: "pre-wrap",
-              }}
-            >
+        <div className={styles.modalOverlay} onClick={() => setDocModal({ open: false })}>
+          <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+            <h2 className={styles.modalTitle}>{docModal.title}</h2>
+            <div style={{ color: "#333", lineHeight: "1.7", whiteSpace: "pre-wrap" }}>
               {docModal.text}
             </div>
             <button
               onClick={() => setDocModal({ open: false })}
-              style={styles.modalCloseBtn}
+              className={styles.modalCloseBtn}
             >
               Закрыть
             </button>
@@ -301,136 +295,5 @@ function Registration() {
     </div>
   );
 }
-
-const styles = {
-  container: {
-    maxWidth: "620px",
-    margin: "50px auto",
-    padding: "40px",
-    background: "#fff",
-    borderRadius: "20px",
-    boxShadow: "0 10px 40px rgba(0,0,0,0.1)",
-  },
-  title: {
-    textAlign: "center",
-    color: "#1a1a1a",
-    marginBottom: "35px",
-    fontSize: "28px",
-    fontWeight: "600",
-  },
-  form: { display: "grid", gap: "20px" },
-
-  baseInput: {
-    width: "100%",
-    padding: "14px 16px",
-    fontSize: "16px",
-    borderRadius: "10px",
-    border: "1px solid #999",
-    backgroundColor: "#fff",
-    color: "#1a1a1a",
-    boxSizing: "border-box",
-    transition: "all 0.2s ease",
-  },
-  errorInput: {
-    width: "100%",
-    padding: "14px 16px",
-    fontSize: "16px",
-    borderRadius: "10px",
-    border: "2px solid #e74c3c",
-    backgroundColor: "#fdf2f2",
-    color: "#1a1a1a",
-    boxSizing: "border-box",
-  },
-  select: {
-    width: "100%",
-    padding: "14px 16px",
-    fontSize: "16px",
-    borderRadius: "10px",
-    border: "1px solid #999",
-    backgroundColor: "#fff",
-    color: "#1a1a1a",
-    height: "50px",
-    cursor: "pointer",
-  },
-  errorText: {
-    color: "#e74c3c",
-    fontSize: "14px",
-    margin: "6px 0 0",
-    fontWeight: "500",
-  },
-  nameGrid: {
-    display: "grid",
-    gridTemplateColumns: "1fr 1fr 1fr",
-    gap: "12px",
-  },
-
-  agreements: {
-    padding: "20px",
-    background: "#f8fff8",
-    borderRadius: "12px",
-    border: "1px solid #c8e6c9",
-  },
-  checkboxLabel: {
-    display: "flex",
-    gap: "10px",
-    fontSize: "14.5px",
-    marginBottom: "14px",
-    alignItems: "flex-start",
-    cursor: "pointer",
-  },
-  checkboxText: {
-    color: "#1a1a1a",
-    lineHeight: "1.5",
-  },
-  link: { color: "#2e7d32", textDecoration: "underline", cursor: "pointer" },
-  linkBold: { color: "#2e7d32", fontWeight: "bold" },
-
-  submitButton: {
-    padding: "16px",
-    background: "#2e7d32",
-    color: "white",
-    border: "none",
-    borderRadius: "12px",
-    fontSize: "18px",
-    fontWeight: "bold",
-    cursor: "pointer",
-    height: "56px",
-  },
-  loginLink: {
-    textAlign: "center",
-    marginTop: "25px",
-    color: "#555",
-    fontSize: "15px",
-  },
-
-  modalOverlay: {
-    position: "fixed",
-    inset: 0,
-    background: "rgba(0,0,0,0.7)",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    zIndex: 9999,
-  },
-  modalContent: {
-    background: "white",
-    padding: "35px",
-    borderRadius: "16px",
-    maxWidth: "600px",
-    maxHeight: "80vh",
-    overflow: "auto",
-  },
-  modalTitle: { color: "#1a1a1a", margin: "0 0 20px 0", fontSize: "24px" },
-  modalCloseBtn: {
-    marginTop: "25px",
-    padding: "10px 30px",
-    background: "#2e7d32",
-    color: "white",
-    border: "none",
-    borderRadius: "8px",
-    cursor: "pointer",
-    fontSize: "16px",
-  },
-};
 
 export default Registration;

@@ -1,7 +1,7 @@
 import random
 from rest_framework import viewsets, filters
 from rest_framework.pagination import PageNumberPagination
-from rest_framework.permissions import AllowAny  # ← ВАЖНО!
+from rest_framework.permissions import AllowAny
 from django.shortcuts import get_object_or_404
 from .models import Article, Category
 from .serializers import ArticleListSerializer, ArticleDetailSerializer, CategorySerializer
@@ -15,7 +15,7 @@ class CategoryViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
     permission_classes = [AllowAny]
-    authentication_classes = []  # ← и здесь
+    authentication_classes = []
 
 class ArticleViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Article.objects.all()

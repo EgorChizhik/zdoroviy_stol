@@ -1,5 +1,5 @@
 .footer {
-  background-color: #2e7d32;
+  background-color: var(--primary-green);
   color: white;
   padding: 40px 50px 20px;
   margin-top: 50px;
@@ -21,11 +21,14 @@
 .logo {
   margin: 0 0 10px 0;
   font-size: 28px;
+  font-weight: bold;
+  color: white;
 }
 
 .description {
-  opacity: 0.8;
+  opacity: 0.9;
   max-width: 300px;
+  line-height: 1.6;
 }
 
 .linksSection {
@@ -36,6 +39,7 @@
 .linksTitle {
   margin-bottom: 15px;
   font-size: 18px;
+  font-weight: 600;
 }
 
 .footerLink {
@@ -43,7 +47,12 @@
   color: white;
   text-decoration: none;
   margin-bottom: 10px;
-  opacity: 0.8;
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
+
+.footerLink:hover {
+  opacity: 1;
 }
 
 .contactSection {
@@ -53,7 +62,8 @@
 
 .contactInfo {
   margin: 5px 0;
-  opacity: 0.8;
+  opacity: 0.9;
+  line-height: 1.6;
 }
 
 .copyright {
@@ -61,9 +71,121 @@
   margin-top: 40px;
   padding-top: 20px;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
-  opacity: 0.7;
+  opacity: 0.8;
 }
 
+@media (min-width: 1200px) {
+  .footer {
+    padding: 60px 80px 30px;
+  }
+
+  .footerContent {
+    gap: 60px;
+  }
+
+  .logo {
+    font-size: 32px;
+  }
+
+  .description {
+    font-size: 17px;
+    max-width: 350px;
+  }
+
+  .linksTitle {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .footerLink {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+
+  .contactInfo {
+    font-size: 16px;
+  }
+
+  .copyright {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .footer {
+    padding: 80px 120px 40px;
+  }
+
+  .footerContent {
+    gap: 80px;
+  }
+
+  .logo {
+    font-size: 36px;
+  }
+
+  .description {
+    font-size: 18px;
+    max-width: 400px;
+  }
+
+  .linksTitle {
+    font-size: 22px;
+    margin-bottom: 25px;
+  }
+
+  .footerLink {
+    font-size: 17px;
+    margin-bottom: 15px;
+  }
+
+  .contactInfo {
+    font-size: 17px;
+  }
+
+  .copyright {
+    font-size: 16px;
+    margin-top: 50px;
+  }
+}
+
+@media (min-width: 2560px) {
+  .footer {
+    padding: 100px 160px 50px;
+  }
+
+  .footerContent {
+    gap: 100px;
+  }
+
+  .logo {
+    font-size: 40px;
+  }
+
+  .description {
+    font-size: 20px;
+    max-width: 450px;
+  }
+
+  .linksTitle {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+
+  .footerLink {
+    font-size: 18px;
+    margin-bottom: 18px;
+  }
+
+  .contactInfo {
+    font-size: 18px;
+  }
+
+  .copyright {
+    font-size: 17px;
+    margin-top: 60px;
+  }
+}
 
 @media (max-width: 1200px) {
   .footer {

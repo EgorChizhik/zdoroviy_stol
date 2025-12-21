@@ -1,0 +1,353 @@
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  position: relative;
+}
+
+.loading {
+  text-align: center;
+  padding: 50px;
+  font-size: 18px;
+  color: #666;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #2e7d32;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 20px;
+  padding: 8px 0;
+  transition: all 0.2s ease;
+}
+
+.backLink:hover {
+  color: #1b5e20;
+  transform: translateX(-4px);
+}
+
+.bannerWrapper {
+  position: relative;
+  height: 280px;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 30px;
+  background: #e8f5e9;
+}
+
+.bannerImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bannerPlaceholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #81c784, #4caf50);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 32px;
+  opacity: 0.9;
+}
+
+.bannerEditButton {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  backdrop-filter: blur(4px);
+}
+
+.bannerEditButton:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.mainContent {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.avatarWrapper {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.avatarImage {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 6px solid white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.avatarPlaceholder {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: #e8f5e9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 70px;
+  color: #2e7d32;
+  border: 6px solid white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.avatarEditButton {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: #2e7d32;
+  color: white;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.avatarEditButton:hover {
+  transform: scale(1.1);
+}
+
+.hiddenInput {
+  display: none;
+}
+
+.infoSection {
+  flex: 1;
+  min-width: 0;
+}
+
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.nicknameDisplay {
+  margin: 0;
+  font-size: 36px;
+  color: #2e7d32;
+  word-break: break-word;
+}
+
+.nicknameInput {
+  font-size: 28px;
+  font-weight: bold;
+  padding: 10px 14px;
+  border: 2px solid #2e7d32;
+  border-radius: 8px;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.editButton,
+.saveButton {
+  padding: 14px 28px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  min-width: 140px;
+}
+
+.editButton {
+  background: #4caf50;
+  color: white;
+}
+
+.saveButton {
+  background: #2e7d32;
+  color: white;
+}
+
+.bioTextarea {
+  width: 100%;
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  resize: vertical;
+  box-sizing: border-box;
+  min-height: 120px;
+}
+
+.bioDisplay {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #444;
+  margin: 0 0 30px 0;
+  white-space: pre-wrap;
+}
+
+.details {
+  margin-top: 30px;
+  color: #666;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.details p {
+  margin: 10px 0;
+}
+
+/* Адаптив */
+
+@media (max-width: 960px) {
+  .container {
+    margin: 20px auto;
+    padding: 15px;
+  }
+
+  .bannerWrapper {
+    height: 220px;
+    border-radius: 16px;
+  }
+
+  .avatarImage,
+  .avatarPlaceholder {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media (max-width: 768px) {
+  .mainContent {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .avatarWrapper {
+    margin-top: -90px;
+    margin-bottom: 20px;
+  }
+
+  .avatarImage,
+  .avatarPlaceholder {
+    width: 160px;
+    height: 160px;
+  }
+
+  .infoSection {
+    width: 100%;
+  }
+
+  .headerRow {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+  }
+
+  .editButton,
+  .saveButton {
+    width: 100%;
+  }
+}
+
+@media (max-width: 375px) {
+  .container {
+    margin: 10px auto;
+    padding: 10px;
+  }
+
+  .backLink {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+
+  .bannerWrapper {
+    height: 160px; 
+    border-radius: 12px;
+    margin-bottom: 20px;
+  }
+
+  .bannerPlaceholder {
+    font-size: 24px;
+  }
+
+  .bannerEditButton {
+    padding: 10px;
+    bottom: 10px;
+    right: 10px;
+  }
+
+  .avatarWrapper {
+    margin-top: -80px;
+  }
+
+  .avatarImage,
+  .avatarPlaceholder {
+    width: 140px;
+    height: 140px;
+    border-width: 5px;
+  }
+
+  .avatarEditButton {
+    width: 40px;
+    height: 40px;
+  }
+
+  .avatarEditButton svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .nicknameDisplay {
+    font-size: 28px;
+    line-height: 1.2;
+  }
+
+  .nicknameInput {
+    font-size: 24px;
+    padding: 12px;
+  }
+
+  .editButton,
+  .saveButton {
+    padding: 14px 20px;
+    font-size: 16px;
+  }
+
+  .bioTextarea {
+    font-size: 16px;
+    padding: 12px;
+  }
+
+  .bioDisplay {
+    font-size: 17px;
+  }
+
+  .details {
+    font-size: 15px;
+  }
+
+  .details p {
+    margin: 8px 0;
+  }
+}

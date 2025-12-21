@@ -55,7 +55,7 @@ export default function Main() {
 
           
           <div className={styles.bannerImagePlaceholder}>
-            Главное фото
+            
           </div>
         </section>
 

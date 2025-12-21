@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { enqueueSnackbar } from 'notistack';
 import api from '../api';
+import styles from './Profile.module.css';
 
 function Profile() {
   const navigate = useNavigate();
@@ -52,12 +53,12 @@ function Profile() {
     });
   };
 
-  if (!user) return <div style={styles.loading}>Загрузка...</div>;
+  if (!user) return <div className={styles.loading}>Загрузка...</div>;
 
   return (
-    <div style={styles.container}>
+    <div className={styles.container}>
       {/* Кнопка "На главную" */}
-      <div onClick={() => navigate('/')} style={styles.backLink}>
+      <div onClick={() => navigate('/')} className={styles.backLink}>
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
           <path d="M19 12H5M12 19l-7-7 7-7"/>
         </svg>
@@ -65,40 +66,40 @@ function Profile() {
       </div>
 
       {/* Баннер */}
-      <div style={styles.bannerWrapper}>
+      <div className={styles.bannerWrapper}>
         {user.banner ? (
-          <img src={user.banner} alt="Баннер" style={styles.bannerImage} />
+          <img src={user.banner} alt="Баннер" className={styles.bannerImage} />
         ) : (
-          <div style={styles.bannerPlaceholder}>
+          <div className={styles.bannerPlaceholder}>
             <p>Ваш баннер</p>
           </div>
         )}
         {isEditing && (
-          <button onClick={() => bannerInputRef.current.click()} style={styles.bannerEditButton}>
+          <button onClick={() => bannerInputRef.current.click()} className={styles.bannerEditButton}>
             Изменить
           </button>
         )}
         <input
           type="file"
           ref={bannerInputRef}
-          style={styles.hiddenInput}
+          className={styles.hiddenInput}
           accept="image/*"
           onChange={() => handleFileUpload('banner')}
         />
       </div>
 
-      <div style={styles.mainContent}>
+      <div className={styles.mainContent}>
         {/* Аватар */}
-        <div style={styles.avatarWrapper}>
+        <div className={styles.avatarWrapper}>
           {user.avatar ? (
-            <img src={user.avatar} alt="Аватар" style={styles.avatarImage} />
+            <img src={user.avatar} alt="Аватар" className={styles.avatarImage} />
           ) : (
-            <div style={styles.avatarPlaceholder}>Profile</div>
+            <div className={styles.avatarPlaceholder}></div>
           )}
           {isEditing && (
             <button
               onClick={() => avatarInputRef.current?.click()}
-              style={styles.avatarEditButton}
+              className={styles.avatarEditButton}
             >
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12.5535 2.49392C12.4114 2.33852 12.2106 2.25 12 2.25C11.7894 2.25 11.5886 2.33852 11.4465 2.49392L7.44648 6.86892C7.16698 7.17462 7.18822 7.64902 7.49392 7.92852C7.79963 8.20802 8.27402 8.18678 8.55352 7.88108L11.25 4.9318V16C11.25 16.4142 11.5858 16.75 12 16.75C12.4142 16.75 12.75 16.4142 12.75 16V4.9318L15.4465 7.88108C15.726 8.18678 16.2004 8.20802 16.5061 7.92852C16.8118 7.64902 16.833 7.17462 16.5535 6.86892L12.5535 2.49392Z" fill="white"/>
@@ -109,30 +110,31 @@ function Profile() {
           <input
             type="file"
             ref={avatarInputRef}
-            style={styles.hiddenInput}
+            className={styles.hiddenInput}
             accept="image/*"
             onChange={() => handleFileUpload('avatar')}
           />
         </div>
 
         {/* Информация о пользователе */}
-        <div style={styles.infoSection}>
-          <div style={styles.headerRow}>
+        <div className={styles.infoSection}>
+          <div className={styles.headerRow}>
             {isEditing ? (
               <input
                 value={formData.nickname}
                 onChange={(e) => setFormData({ ...formData, nickname: e.target.value })}
-                style={styles.nicknameInput}
+                className={styles.nicknameInput}
+                placeholder="Ваш никнейм"
               />
             ) : (
-              <h1 style={styles.nicknameDisplay}>{user.nickname}</h1>
+              <h1 className={styles.nicknameDisplay}>{user.nickname || 'Без имени'}</h1>
             )}
 
             <button
               onClick={isEditing ? handleSave : () => setIsEditing(true)}
-              style={isEditing ? styles.saveButton : styles.editButton}
+              className={isEditing ? styles.saveButton : styles.editButton}
             >
-              {isEditing ? 'Применить' : 'Редактировать'}
+              {isEditing ? 'Применить' : '/'}
             </button>
           </div>
 
@@ -142,195 +144,23 @@ function Profile() {
               onChange={(e) => setFormData({ ...formData, bio: e.target.value })}
               placeholder="Расскажите о себе..."
               rows="4"
-              style={styles.bioTextarea}
+              className={styles.bioTextarea}
             />
           ) : (
-            <p style={styles.bioDisplay}>
+            <p className={styles.bioDisplay}>
               {user.bio || 'Расскажите о себе...'}
             </p>
           )}
 
-          <div style={styles.details}>
-            <p><strong>Имя:</strong> {user.first_name} {user.last_name}</p>
+          <div className={styles.details}>
+            <p><strong>Имя:</strong> {user.first_name || '-'} {user.last_name || ''}</p>
             <p><strong>Email:</strong> {user.email}</p>
-            <p><strong>Телефон:</strong> {user.phone}</p>
+            <p><strong>Телефон:</strong> {user.phone || '-'}</p>
           </div>
         </div>
       </div>
     </div>
   );
 }
-
-const styles = {
-  container: {
-    maxWidth: '900px',
-    margin: '40px auto',
-    padding: '20px',
-    position: 'relative',
-  },
-  loading: {
-    textAlign: 'center',
-    padding: '50px',
-  },
-  backLink: {
-    display: 'inline-flex',
-    alignItems: 'center',
-    gap: '8px',
-    color: '#2e7d32',
-    fontSize: '17px',
-    fontWeight: '600',
-    cursor: 'pointer',
-    marginBottom: '20px',
-    padding: '8px 0',
-    transition: 'all 0.2s ease',
-    userSelect: 'none',
-  },
-  bannerWrapper: {
-    position: 'relative',
-    height: '280px',
-    borderRadius: '20px',
-    overflow: 'hidden',
-    marginBottom: '30px',
-    background: '#e8f5e9',
-  },
-  bannerImage: {
-    width: '100%',
-    height: '100%',
-    objectFit: 'cover',
-  },
-  bannerPlaceholder: {
-    width: '100%',
-    height: '100%',
-    background: 'linear-gradient(135deg, #81c784, #4caf50)',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  bannerPlaceholderText: {
-    fontSize: '32px',
-    color: 'white',
-    opacity: 0.8,
-  },
-  bannerEditButton: {
-    position: 'absolute',
-    bottom: '15px',
-    right: '15px',
-    background: 'rgba(0,0,0,0.6)',
-    color: 'white',
-    padding: '12px',
-    borderRadius: '50%',
-    cursor: 'pointer',
-    border: 'none',
-  },
-  mainContent: {
-    display: 'flex',
-    gap: '30px',
-    alignItems: 'flex-start',
-  },
-  avatarWrapper: {
-    position: 'relative',
-  },
-  avatarImage: {
-    width: '180px',
-    height: '180px',
-    borderRadius: '50%',
-    objectFit: 'cover',
-    border: '6px solid white',
-    boxShadow: '0 4px 20px rgba(0,0,0,0.2)',
-  },
-  avatarPlaceholder: {
-    width: '180px',
-    height: '180px',
-    borderRadius: '50%',
-    background: '#e8f5e9',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontSize: '70px',
-    border: '6px solid white',
-  },
-  avatarEditButton: {
-    position: 'absolute',
-    bottom: '10px',
-    right: '10px',
-    background: '#2e7d32',
-    color: 'white',
-    width: '48px',
-    height: '48px',
-    borderRadius: '50%',
-    border: 'none',
-    cursor: 'pointer',
-    padding: 0,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    boxShadow: '0 2px 8px rgba(0,0,0,0.2)',
-  },
-  hiddenInput: {
-    display: 'none',
-  },
-  infoSection: {
-    flex: 1,
-  },
-  headerRow: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: '20px',
-  },
-  nicknameDisplay: {
-    margin: 0,
-    fontSize: '36px',
-    color: '#2e7d32',
-  },
-  nicknameInput: {
-    fontSize: '32px',
-    fontWeight: 'bold',
-    padding: '8px',
-    border: '2px solid #2e7d32',
-    borderRadius: '8px',
-    outline: 'none',
-  },
-  editButton: {
-    padding: '12px 28px',
-    background: '#4caf50',
-    color: 'white',
-    border: 'none',
-    borderRadius: '8px',
-    fontSize: '16px',
-    cursor: 'pointer',
-    fontWeight: 'bold',
-  },
-  saveButton: {
-    padding: '12px 28px',
-    background: '#2e7d32',
-    color: 'white',
-    border: 'none',
-    borderRadius: '8px',
-    fontSize: '16px',
-    cursor: 'pointer',
-    fontWeight: 'bold',
-  },
-  bioTextarea: {
-    width: '100%',
-    padding: '15px',
-    borderRadius: '12px',
-    border: '1px solid #ccc',
-    fontSize: '16px',
-    resize: 'vertical',
-  },
-  bioDisplay: {
-    fontSize: '18px',
-    lineHeight: '1.6',
-    color: '#444',
-    margin: '0',
-  },
-  details: {
-    marginTop: '30px',
-    color: '#666',
-    fontSize: '16px',
-    lineHeight: '1.8',
-  },
-};
 
 export default Profile;

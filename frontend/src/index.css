@@ -1,40 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&family=Comfortaa:wght@300;400;500;600;700&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap');
-
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-/* шрифты */
+
 body {
   margin: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Comfortaa', sans-serif;
 }
 
 h1, h2, h3, .logo {
   font-family: 'Playfair Display', serif;
-  color: '248, 249, 250';
+  color: #f8f9fa;
 }
 
 button, input, a, nav {
   font-family: 'Montserrat', sans-serif;
 }
-
-
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  color-scheme: light;
+
+  /* Основной цвет текста  */
+  color: #333333;
+
+  /* Основной фон */
+  background-color: #F5FBEF;
+
+--primary-green: #4CAF50;/* Кнопки, заголовки, футер */
+  --light-bg: #F5FBEF;/* Основной фон */
+  --card-bg: #E8F5E9;/* Блоки, карточки статей */
+  --text-dark: #333333;/* Основной текст */
+  --text-light: #FFFFFF;/* Текст  */
+  
 }
 
 

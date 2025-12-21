@@ -2,6 +2,7 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: var(--light-bg);
 }
 
 .main {
@@ -13,7 +14,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #e8f5e9;
+  background-color: var(--card-bg);
   border-radius: 20px;
   margin: 40px 0;
   gap: 40px;
@@ -26,14 +27,15 @@
 }
 
 .bannerTitle {
-  color: #1b5e20;
+  color: var(--primary-green);
   margin-bottom: 20px;
   line-height: 1.2;
   font-size: 48px;
+  font-weight: 700;
 }
 
 .bannerText {
-  color: #333;
+  color: var(--text-dark);
   margin-bottom: 30px;
   line-height: 1.6;
   font-size: 18px;
@@ -42,24 +44,30 @@
 .bannerButton {
   display: inline-block;
   padding: 15px 30px;
-  background-color: #2e7d32;
+  background-color: var(--primary-green);
   color: white;
   text-decoration: none;
   border-radius: 8px;
   font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.bannerButton:hover {
+  background-color: #43A047;
 }
 
 .bannerImagePlaceholder {
   flex: 1;
-  height: 300px;
-  background-color: #c8e6c9;
+  max-width: 600px;
+  height: 400px;
+  min-width: 300px;
+  background-image: url('/media/page_main/main_photo.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #1b5e20;
-  font-size: 24px;
-  opacity: 0.7;
+  align-self: center;
+  opacity: 0.9;
 }
 
 .section {
@@ -67,11 +75,12 @@
 }
 
 .sectionTitle {
-  color: #1b5e20;
+  color: var(--primary-green);
   margin-bottom: 30px;
   border-bottom: 2px solid #e0e0e0;
   padding-bottom: 10px;
   font-size: 32px;
+  font-weight: 600;
 }
 
 .articlesGrid {
@@ -116,8 +125,8 @@
 .categoryTag {
   display: inline-block;
   padding: 6px 12px;
-  background-color: #e8f5e9;
-  color: #1b5e20;
+  background-color: var(--card-bg);
+  color: var(--primary-green);
   border-radius: 20px;
   font-size: 13px;
   font-weight: 500;
@@ -137,6 +146,11 @@
   overflow: hidden;
   color: #000;
   line-clamp: 3;
+  transition: color 0.2s ease;
+}
+
+.articleCardTitle:hover {
+  color: var(--primary-green);
 }
 
 .articleMetaBottom {
@@ -159,6 +173,13 @@
   border: 1px solid #e0e0e0;
   border-radius: 10px;
   padding: 25px;
+  background-color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.authorCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
 .authorAvatar {
@@ -177,6 +198,8 @@
 .authorName {
   font-size: 18px;
   margin-bottom: 5px;
+  font-weight: 600;
+  color: var(--text-dark);
 }
 
 .authorRole {
@@ -186,15 +209,73 @@
 }
 
 .authorArticles {
-  color: #2e7d32;
+  color: var(--primary-green);
   font-weight: bold;
 }
-
-
 
 @media (max-width: 1200px) {
   .bannerTitle {
     font-size: 42px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .banner {
+    padding: 80px 60px;
+    gap: 60px;
+  }
+
+  .bannerImagePlaceholder {
+    height: 500px;
+    max-width: 700px;
+  }
+
+  .bannerTitle {
+    font-size: 54px;
+  }
+
+  .bannerText {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .banner {
+    padding: 100px 80px;
+    gap: 80px;
+    max-width: 1800px;
+    margin: 60px auto;
+  }
+
+  .bannerImagePlaceholder {
+    height: 600px;
+    max-width: 800px;
+  }
+
+  .bannerTitle {
+    font-size: 60px;
+  }
+
+  .bannerText {
+    font-size: 22px;
+  }
+}
+
+@media (min-width: 2560px) {
+  .banner {
+    padding: 120px 100px;
+    gap: 100px;
+    max-width: 2200px;
+    margin: 80px auto;
+  }
+
+  .bannerImagePlaceholder {
+    height: 700px;
+    max-width: 900px;
+  }
+
+  .bannerTitle {
+    font-size: 68px;
   }
 }
 
@@ -221,7 +302,6 @@
     font-size: 16px;
   }
 
-  /* Скрываем фото на ≤960px */
   .bannerImagePlaceholder {
     display: none;
   }

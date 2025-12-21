@@ -2,29 +2,30 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+  background-color: var(--light-bg);
 }
 
 .bannerSection {
   position: relative;
   min-height: 80vh;
-  height: auto; 
+  height: auto;
   background-size: cover;
   background-position: center;
   border-radius: 0 0 30px 30px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: center; 
+  justify-content: center;
   text-align: center;
   color: white;
-  padding: 60px 20px; 
+  padding: 60px 20px;
   box-sizing: border-box;
 }
 
 .bannerOverlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(76, 175, 80);
 }
 
 .bannerContent {
@@ -57,19 +58,26 @@
 .bannerCtaButton {
   display: inline-block;
   padding: 16px 40px;
-  background: #2e7d32;
-  color: white;
+  background: #fff;
+  color: #333333;
   border-radius: 50px;
   font-size: 18px;
   font-weight: bold;
   text-decoration: none;
   box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease;
+  border: 1px solid transparent;
 }
 
-
+.bannerCtaButton:hover {
+  background: #43A047;
+  color: #fff;
+  border: 1px solid #fff;
+}
 .purposeSection {
   padding: 80px 20px;
   text-align: center;
+  background-color: var(--light-bg);
 }
 
 .purposeText {
@@ -77,12 +85,12 @@
   line-height: 1.8;
   max-width: 900px;
   margin: 0 auto;
-  color: #444;
+  color: var(--text-dark);
 }
 
 .featuresHighlight {
   padding: 60px 20px;
-  background: #f8fff8;
+  background: var(--card-bg);
 }
 
 .featuresGrid {
@@ -99,6 +107,11 @@
   background: white;
   border-radius: 20px;
   box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+
+.featurePlate:hover {
+  transform: translateY(-8px);
 }
 
 .featureIcon {
@@ -110,18 +123,20 @@
 .featureDescription {
   font-size: 18px;
   line-height: 1.6;
-  color: #444;
+  color: var(--text-dark);
 }
 
 .advantagesSection {
   padding: 80px 20px;
+  background-color: var(--light-bg);
 }
 
 .advantagesHeading {
   text-align: center;
   font-size: 36px;
   margin-bottom: 60px;
-  color: #1b5e20;
+  color: var(--primary-green);
+  font-weight: 600;
 }
 
 .advantagesGrid {
@@ -138,17 +153,24 @@
   border-radius: 20px;
   box-shadow: 0 8px 25px rgba(0,0,0,0.08);
   text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.advantageTile:hover {
+  transform: translateY(-8px);
 }
 
 .advantageIcon {
   font-size: 50px;
   margin-bottom: 20px;
+  color: var(--primary-green);
 }
 
 .advantageTitle {
   font-size: 22px;
   margin-bottom: 15px;
-  color: #1b5e20;
+  color: var(--primary-green);
+  font-weight: 600;
 }
 
 .advantageText {
@@ -159,7 +181,7 @@
 
 .nutritionStats {
   padding: 80px 20px;
-  background: #2e7d32;
+  background: var(--primary-green);
   color: white;
   text-align: center;
 }
@@ -228,16 +250,23 @@
   border-radius: 50px 0 0 50px;
   border: none;
   font-size: 18px;
+  background: white;
 }
 
 .newsletterSubmit {
   padding: 16px 30px;
-  background: #ff6b35;
+  background: var(--primary-green);
   color: white;
   border: none;
   border-radius: 0 50px 50px 0;
   font-size: 18px;
+  font-weight: bold;
   cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.newsletterSubmit:hover {
+  background: #43A047;
 }
 
 .newsletterLinks {
@@ -251,9 +280,167 @@
   color: white;
   font-size: 18px;
   text-decoration: underline;
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
 }
 
-/* Адаптив */
+.newsletterLink:hover {
+  opacity: 1;
+}
+
+@media (min-width: 1200px) {
+  .pageWrapper {
+    max-width: 1400px;
+    padding: 0 40px;
+  }
+
+  .bannerSection {
+    padding: 80px 40px;
+  }
+
+  .bannerTitle {
+    font-size: 62px;
+  }
+
+  .bannerSubtitle {
+    font-size: 36px;
+  }
+
+  .bannerDescription {
+    font-size: 22px;
+  }
+
+  .purposeSection,
+  .advantagesSection,
+  .nutritionStats {
+    padding: 100px 40px;
+  }
+
+  .featuresHighlight {
+    padding: 80px 40px;
+  }
+
+  .featuresGrid,
+  .advantagesGrid {
+    max-width: 1300px;
+    gap: 50px;
+  }
+
+  .newsletterBlock {
+    padding: 120px 40px;
+  }
+
+  .newsletterHeading {
+    font-size: 46px;
+  }
+
+  .newsletterDescription {
+    font-size: 22px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .pageWrapper {
+    max-width: 1700px;
+    padding: 0 60px;
+  }
+
+  .bannerSection {
+    padding: 100px 60px;
+  }
+
+  .bannerTitle {
+    font-size: 70px;
+  }
+
+  .bannerSubtitle {
+    font-size: 40px;
+  }
+
+  .bannerDescription {
+    font-size: 24px;
+  }
+
+  .purposeSection,
+  .advantagesSection,
+  .nutritionStats {
+    padding: 120px 60px;
+  }
+
+  .featuresHighlight {
+    padding: 100px 60px;
+  }
+
+  .featuresGrid,
+  .advantagesGrid {
+    max-width: 1600px;
+    gap: 60px;
+  }
+
+  .newsletterBlock {
+    padding: 140px 60px;
+  }
+
+  .newsletterHeading {
+    font-size: 52px;
+  }
+
+  .newsletterDescription {
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 2560px) {
+  .pageWrapper {
+    max-width: 2100px;
+    padding: 0 80px;
+  }
+
+  .bannerSection {
+    padding: 120px 80px;
+  }
+
+  .bannerTitle {
+    font-size: 78px;
+  }
+
+  .bannerSubtitle {
+    font-size: 44px;
+  }
+
+  .bannerDescription {
+    font-size: 26px;
+  }
+
+  .purposeSection,
+  .advantagesSection,
+  .nutritionStats {
+    padding: 140px 80px;
+  }
+
+  .featuresHighlight {
+    padding: 120px 80px;
+  }
+
+  .featuresGrid,
+  .advantagesGrid {
+    max-width: 1900px;
+    gap: 70px;
+  }
+
+  .newsletterBlock {
+    padding: 160px 80px;
+  }
+
+  .newsletterHeading {
+    font-size: 58px;
+  }
+
+  .newsletterDescription {
+    font-size: 26px;
+  }
+}
+
 @media (max-width: 960px) {
   .pageWrapper {
     padding: 0 16px;
@@ -298,8 +485,8 @@
 
 @media (max-width: 600px) {
   .bannerSection {
-    min-height: 100vh; 
-    justify-content: center; 
+    min-height: 100vh;
+    justify-content: center;
     padding: 40px 20px;
   }
 

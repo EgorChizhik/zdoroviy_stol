@@ -1,0 +1,325 @@
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.heroImageWrapper {
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.heroImage {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  display: block;
+}
+
+.metaCard {
+  background: #f8f9fa;
+  padding: 24px;
+  border-radius: 16px;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin: -80px auto 50px;
+  max-width: 900px;
+}
+
+.metaTop {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.tagsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.categoryChip {
+  padding: 8px 18px;
+  background: #d1ead2;
+  color: #2e7d32;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 15px;
+  white-space: nowrap;
+}
+
+.hashtagsWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.hashtag {
+  color: #666;
+  font-size: 15px;
+}
+
+.title {
+  font-size: 42px;
+  text-align: center;
+  color: #2e7d32;
+  margin: 40px 0 30px;
+  line-height: 1.2;
+}
+
+.shortDescription {
+  font-size: 20px;
+  color: #444;
+  text-align: center;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto 60px;
+}
+
+.content {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 80px;
+}
+
+.content :global(p) {
+  margin-bottom: 20px;
+}
+
+.content :global(img) {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin: 30px auto;
+  display: block;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.content :global(h2),
+.content :global(h3) {
+  color: #2e7d32;
+  margin: 40px 0 20px;
+}
+
+.backLinkWrapper {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.backLink {
+  color: #2e7d32;
+  font-size: 18px;
+  text-decoration: underline;
+  transition: opacity 0.2s;
+}
+
+.backLink:hover {
+  opacity: 0.8;
+}
+
+.loading {
+  text-align: center;
+  padding: 100px 20px;
+  font-size: 20px;
+  color: #666;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1100px;
+    padding: 60px 40px;
+  }
+
+  .heroImage {
+    height: 600px;
+  }
+
+  .metaCard {
+    margin: -100px auto 60px;
+    padding: 30px;
+    max-width: 1000px;
+  }
+
+  .title {
+    font-size: 48px;
+    margin: 50px 0 35px;
+  }
+
+  .shortDescription {
+    font-size: 22px;
+  }
+
+  .content {
+    font-size: 19px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .container {
+    max-width: 1400px;
+    padding: 80px 60px;
+  }
+
+  .heroImage {
+    height: 700px;
+  }
+
+  .metaCard {
+    margin: -120px auto 70px;
+    padding: 36px;
+    max-width: 1200px;
+  }
+
+  .title {
+    font-size: 54px;
+    margin: 60px 0 40px;
+  }
+
+  .shortDescription {
+    font-size: 24px;
+  }
+
+  .content {
+    font-size: 20px;
+    line-height: 1.9;
+  }
+}
+
+@media (min-width: 2560px) {
+  .container {
+    max-width: 1600px;
+    padding: 100px 80px;
+  }
+
+  .heroImage {
+    height: 800px;
+  }
+
+  .metaCard {
+    margin: -140px auto 80px;
+    padding: 40px;
+    max-width: 1400px;
+  }
+
+  .title {
+    font-size: 60px;
+    margin: 70px 0 45px;
+  }
+
+  .shortDescription {
+    font-size: 26px;
+  }
+
+  .content {
+    font-size: 22px;
+    line-height: 2;
+  }
+}
+
+@media (max-width: 1200px) {
+  .metaCard {
+    margin: -60px 30px 50px;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 960px) {
+  .container {
+    padding: 30px 20px;
+  }
+
+  .heroImage {
+    height: 400px;
+  }
+
+  .title {
+    font-size: 36px;
+  }
+
+  .shortDescription {
+    font-size: 19px;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroImage {
+    height: 350px;
+  }
+
+  .metaCard {
+    margin: -50px 20px 40px;
+    padding: 18px;
+  }
+
+  .title {
+    font-size: 32px;
+    margin: 30px 0 25px;
+  }
+
+  .shortDescription {
+    font-size: 18px;
+    margin-bottom: 50px;
+  }
+
+  .content {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 375px) {
+  .container {
+    padding: 20px 15px;
+  }
+
+  .heroImageWrapper {
+    border-radius: 12px;
+    margin-bottom: 20px;
+  }
+
+  .heroImage {
+    height: 280px;
+  }
+
+  .metaCard {
+    margin: -40px 15px 30px;
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  .metaTop {
+    font-size: 15px;
+  }
+
+  .categoryChip {
+    padding: 6px 14px;
+    font-size: 14px;
+  }
+
+  .hashtag {
+    font-size: 14px;
+  }
+
+  .title {
+    font-size: 28px;
+    margin: 25px 0 20px;
+  }
+
+  .shortDescription {
+    font-size: 17px;
+    margin-bottom: 40px;
+  }
+
+  .content {
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 60px;
+  }
+
+  .backLink {
+    font-size: 17px;
+  }
+}

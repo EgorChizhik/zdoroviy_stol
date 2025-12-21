@@ -1,0 +1,152 @@
+.container {
+  max-width: 450px;
+  margin: 80px auto;
+  padding: 40px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  background-color: var(--light-bg);
+}
+
+.title {
+  text-align: center;
+  color: var(--primary-green);
+  margin-bottom: 30px;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.form {
+  display: grid;
+  gap: 15px;
+}
+
+.input {
+  width: 100%;
+  padding: 15px 18px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  box-sizing: border-box;
+  background-color: white;
+  color: var(--text-dark);
+  transition: all 0.2s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--primary-green);
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.15);
+}
+
+.inputError {
+  border: 2px solid #e74c3c;
+  background-color: #fdf2f2;
+}
+
+.inputError:focus {
+  border-color: #e74c3c;
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.15);
+}
+
+.errorMessage {
+  color: #e74c3c;
+  font-size: 14px;
+  margin: 0 0 10px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.submitButton {
+  width: 70%;
+  max-width: 300px;
+  padding: 16px;
+  background: var(--primary-green);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  display: block;
+  margin: 20px auto 0;
+  transition: background-color 0.3s ease;
+}
+
+.submitButton:hover {
+  background: #43A047;
+}
+
+.submitButton:disabled {
+  background: #a5d6a7;
+  cursor: not-allowed;
+}
+
+.registerLink {
+  text-align: center;
+  margin-top: 30px;
+  color: #666;
+  font-size: 15px;
+}
+
+.registerLink a {
+  color: var(--primary-green);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.registerLink a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 960px) {
+  .container {
+    margin: 60px auto;
+    padding: 35px;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 16px;
+  }
+
+  .title {
+    font-size: 26px;
+  }
+
+  .submitButton {
+    width: 100%;
+  }
+}
+
+@media (max-width: 375px) {
+  .container {
+    margin: 20px auto;
+    padding: 25px;
+    border-radius: 12px;
+  }
+
+  .title {
+    font-size: 24px;
+    margin-bottom: 25px;
+  }
+
+  .input {
+    padding: 18px;
+    font-size: 17px;
+  }
+
+  .submitButton {
+    padding: 18px;
+    font-size: 18px;
+    height: 60px;
+  }
+
+  .registerLink {
+    font-size: 15px;
+    margin-top: 25px;
+  }
+}
