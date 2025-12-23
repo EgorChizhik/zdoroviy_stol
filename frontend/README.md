@@ -1,18 +1,95 @@
-# React + Vite
+# Здоровый стол — Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Frontend новостного портала о здоровом питании «Здоровый стол».  
+Реализован на React (Vite) с полной адаптивностью и JWT-аутентификацией.
 
-Currently, two official plugins are available:
+## Зависимости
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **react-router-dom@6.30.2** — роутинг
+- **axios@1.13.2** — запросы к API
+- **react-imask@7.6.1** + **react-input-mask@2.0.4** — маска телефона в регистрации
+- **notistack@3.0.2** — красивые уведомления/snackbar
+- **date-fns@4.1.0** — форматирование дат
 
-## React Compiler
+## Структура проекта
+frontend/
+├── dist
+├── node_modules
+├── public
+├── src
+│   ├── assets
+│   ├── components
+│   │   ├── Header.jsx
+│   │   ├── Footer.jsx
+│   │   ├── Header.module.css
+│   │   └── Footer.module.css
+│   ├── pages
+│   │   ├── About.jsx + About.module.css
+│   │   ├── ArticleDetail.jsx + ArticleDetail.module.css
+│   │   ├── NewsPage.jsx + NewsPage.module.css
+│   │   ├── Login.jsx + Login.module.css
+│   │   ├── Registration.jsx + Registration.module.css
+│   │   ├── Profile.jsx + Profile.module.css
+│   │   └── MainPage.jsx + MainPage.module.css
+│   ├── api.js
+│   ├── App.jsx
+│   ├── index.css
+│   ├── App.css
+│   └── main.jsx
+├── .gitignore
+├── package.json
+## Основной функционал
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+- **Header** — общий для всех страниц:  
+  Логотип, меню (Главная, Новости, О нас).  
+  Динамические кнопки: при авторизации — никнейм + красная кнопка "Выйти", иначе — "Войти" и "Регистрация".
 
-Note: This will impact Vite dev & build performances.
+- **Footer** — общий для всех страниц:  
+  Логотип и краткое описание портала, повтор ссылок на основные разделы, контактная информация (email, телефон), копирайт с текущим годом.
 
-## Expanding the ESLint configuration
+- **Главная страница** — баннер, блок новых статей (4 карточки), популярные авторы.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Список новостей** — поиск, сортировка, прокручиваемые категории, сайдбар с недавними статьями (5 шт.), пагинация, адаптивная grid.
+
+- **Детальная статья** — полный контент с форматированием, метаданные, кнопка возврата.
+
+- **О нас** — статические блоки: миссия, преимущества, статистика, форма подписки.
+
+- **Регистрация** — полная форма с маской телефона (`react-imask`), модальными окнами для "Согласия на обработку ПД" и "Политики конфиденциальности", вывод ошибок валидации через notistack.
+
+- **Вход** — форма, при успехе сохраняются access/refresh токены и nickname в localStorage, переход в профиль.
+
+- **Личный кабинет** —  
+  Режим редактирования: кнопка-карандаш → "Применить".  
+  Мини-кнопки на аватаре и баннере для загрузки изображений.  
+  Поле "О себе".  
+  Изменения сохраняются только после нажатия "Применить" (клиентская логика).
+
+  //
+
+- Полная адаптивность под разрешения 375px – 2560px.
+- Все стили в модульных файлах `.module.css`.
+
+## Установка и запуск
+
+1. Убедитесь, что backend запущен и доступен по адресу  
+   `http://127.0.0.1:8000`  
+   (запустите `python manage.py runserver` в папке backend).
+
+2. Перейдите в папку frontend:
+   ```bash
+   cd frontend
+
+Установите зависимости:
+
+Bash
+npm install
+
+Запустите фронтенд-сервер:
+
+Bash
+npm run dev
+
+Откройте браузер по адресу:
+
+http://localhost:5173.
